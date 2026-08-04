@@ -1,7 +1,13 @@
+<div align="center">
+
+![Logo](docs/logo.png)
+
 # Turbowarp Packager Lite
 A lightweight version of Turbowarp Packager that allows you to convert your Scratch/Turbowarp projects to EXE without Chromium.
 
 Using WebView2. This drastically reduces the size to 70MB compared to 100MB size when using Chromium.
+
+</div>
 
 ## How to Use
 1. Convert your Scratch/Turbowarp project to plain HTML in [Turbowarp Packager](https://packager.turbowarp.org/)
@@ -16,4 +22,4 @@ Using WebView2. This drastically reduces the size to 70MB compared to 100MB size
 - sirthegamercoder, Owner of Turbowarp Packager Lite
 - Turbowarp Team, App icon
 
-If you find a bug, please report in Issues section!
+<div align="center">If you find a bug, please report in Issues section!</div>
