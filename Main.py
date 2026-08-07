@@ -13,11 +13,10 @@ def resource_path(relative_path):
 def preview_game():
     html_file = resource_path("assets/index.html")
     da_name_game = resource_path("assets/name-project.txt")
-    icon_app_game = resource_path("assets/icon.ico")
+    icon_app_game = resource_path("assets/icon.ico") if sys.platform == "win32" else resource_path("assets/icon.png")
 
     with open(da_name_game, "r", encoding="utf-8") as file:
-        content = file.read()
-        name_game = content
+        name_game = file.read()
 
     width, height = 480, 360
 
@@ -38,7 +37,18 @@ def main():
         pass
 
     user_input = input("Enter Scratch/Turbowarp project name: ")
-    proceed_input = user_input.lower().replace(" ", "-")
+    if not user_input:
+        print("Project name cannot be empty!")
+        sys.exit(1)
+
+    convert = input("Convert to lowercase and hyphenated? (y/n): ").lower()
+    
+    if convert == "y" or convert == "yes":
+        proceed_input = user_input.lower().replace(" ", "-")
+        print(f"Converted to: {proceed_input}")
+    else:
+        proceed_input = user_input
+        print(f"Keeping original: {proceed_input}")
 
     with open(da_file, "w", encoding="utf-8") as file:
         file.write(proceed_input)
@@ -48,7 +58,7 @@ def main():
     if choice == "test":
         preview_game()
     elif choice == "compile":
-        subprocess.run(["build.bat"], shell=True)
+        subprocess.run([sys.executable, "compile.py"])
     else:
         print("Invalid user's input.")
 

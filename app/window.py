@@ -12,11 +12,10 @@ def resource_path(relative_path):
 def main():
     html_file = resource_path("assets/index.html")
     da_name_game = resource_path("assets/name-project.txt")
-    icon_app_game = resource_path("assets/icon.ico")
+    icon_app_game = resource_path("assets/icon.ico") if sys.platform == "win32" else resource_path("assets/icon.png")
 
     with open(da_name_game, "r", encoding="utf-8") as file:
-        content = file.read()
-        name_game = content
+        name_game = file.read()
 
     width, height = 480, 360
 
