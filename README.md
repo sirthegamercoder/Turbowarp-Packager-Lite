@@ -15,8 +15,8 @@ Using WebView2. This drastically reduces the size to 70-50MB compared to 100MB s
 3. Move `index.html` to assets folder
 4. Click `run.bat` (Windows) or `run.sh` (MacOS/Linux) and enter your Scratch/Turbowarp project
 5. You can type test or compile to choose whether you want to preview or compile directly.
-6. Wait until the compilation process is complete
-7. Archive the folder including all the files inside dist folder in ZIP format or another format, and you're done!
+
+You're done!
 
 ## Credits
 - sirthegamercoder, Owner of Turbowarp Packager Lite
