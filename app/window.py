@@ -9,10 +9,18 @@ def resource_path(relative_path):
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
 
+def determine_app_icon():
+    if sys.platform == "win32":
+        return resource_path("assets/icon.ico")
+    elif sys.platform == "darwin":
+        return resource_path("assets/icon.icns")
+    else:
+        return resource_path("assets/icon.png")
+
 def main():
     html_file = resource_path("assets/index.html")
     da_name_game = resource_path("assets/name-project.txt")
-    icon_app_game = resource_path("assets/icon.ico") if sys.platform == "win32" elif sys.platform == "darwin" resource_path("assets/icon.icns") else resource_path("assets/icon.png")
+    icon_app_game = determine_app_icon()
 
     with open(da_name_game, "r", encoding="utf-8") as file:
         name_game = file.read()
